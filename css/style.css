@@ -1,0 +1,443 @@
+/* БАЗА */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+ font-family: "Inter", sans-serif;
+ 
+}
+
+/* HEADER */
+.site-header {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+   padding: 0;
+   position: sticky;
+   top:0;
+   z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ЛОГО */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-svg {
+  height: 76px;        /* контроль висоти в меню */
+  width: auto;
+  display: block;
+}
+
+/* МЕНЮ */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #1D100E;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  padding: 2px 0;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+/* ХОВЕР — акуратний, "тихий" */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #AD252A;
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #AD252A;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* АДАПТИВ (базово) */
+@media (max-width: 900px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+.hero {
+  position: relative;
+  min-height: 85vh;
+  background-image: url("../img/fon-hero2.png"); /* ← твоє фото */
+  background-size: cover;
+  background-position: center left;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+/* затемнення для читабельності тексту */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0.05) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+}
+
+/* контейнер */
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* текст */
+.hero-content {
+  max-width: 520px;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: clamp(52px, 5vw, 64px);
+  line-height: 1.12;
+  margin-bottom: 18px;
+  font-family: "Lora", serif;
+  font-weight: 500;
+  letter-spacing: normal;
+  
+}
+
+
+.hero-subtitle
+ {
+    max-width: 480px;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  margin-bottom: 36px;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+/* кнопка */
+.hero-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1.5px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-color: rgba(255,255,255,0.65);
+}
+
+.hero-btn:hover {
+  background-color: #fff;
+  color: #1D100E;
+  border-color: #fff;
+}
+@media (max-width: 600px) {
+  .hero {
+    min-height: 70vh;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(36px, 8vw, 44px);
+  }
+}
+
+.intro-text {
+  max-width: 720px;
+  padding: 0 20px;
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: center;
+  color: #1D100E;
+  opacity: 0.9;
+  font-family: "Lora", serif;
+  margin: 60px auto 32px;
+}
+
+/* =========================
+   НАПРЯМИ
+========================= */
+
+section.directions {
+  padding: 64px 0 100px;
+  background-color: #ffffff;
+   display: flex;
+  justify-content: center;
+}
+
+section.directions .directions-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 80px;
+  row-gap: 72px;
+}
+
+/* окремий блок */
+section.directions .direction-item {
+     max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* заголовок напряму */
+section.directions .direction-item h3 {
+  font-family: "Lora", serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0 0 14px 0;
+  color: #1D100E;
+}
+
+/* підпис */
+section.directions .direction-item p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #1D100E;
+  opacity: 0.7;
+  letter-spacing: 0.03em;
+}
+
+/* =========================
+   АДАПТИВ
+========================= */
+
+@media (max-width: 900px) {
+  section.directions {
+    padding: 80px 0;
+  }
+
+  section.directions .directions-container {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+  }
+
+  section.directions .direction-item h3 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+
+  /* перехідна фраза */
+  .intro-text {
+    margin: 48px auto 16px; /* ↓ прибрали «провал» */
+    font-size: 19px;
+  }
+
+  /* напрями */
+  section.directions {
+    padding: 40px 0 80px; /* ↓ компактніший старт */
+  }
+
+  section.directions .directions-container {
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+  }
+
+  section.directions .direction-item {
+    max-width: 520px;
+    justify-self: center;
+  }
+
+  section.directions .direction-item h3 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 600px) {
+
+  .intro-text {
+    margin: 40px auto 12px;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  section.directions {
+    padding: 32px 0 64px;
+  }
+
+  section.directions .directions-container {
+    row-gap: 40px;
+  }
+
+  section.directions .direction-item {
+    max-width: 100%;
+  }
+
+  section.directions .direction-item h3 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  section.directions .direction-item p {
+    font-size: 14px;
+  }
+}
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  background-color: #faf9f7; /* той самий тихий фон */
+  padding: 64px 0 48px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+/* бренд */
+.footer-logo {
+  font-family: "Lora", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1D100E;
+  margin-bottom: 8px;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #AD262B;
+  opacity: 1;
+}
+
+/* навігація */
+.footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 40px;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #1D100E;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+}
+
+/* низ */
+.footer-meta {
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  font-size: 13px;
+  color: #1D100E;
+  opacity: 0.5;
+}
+
+/* =========================
+   НАПРЯМИ — навігаційний блок
+========================= */
+
+.direction-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  max-width: 460px;
+  justify-self: center;
+
+  transition: transform 0.25s ease;
+}
+
+.direction-item:hover {
+  transform: translateY(-2px);
+}
+
+.direction-item:hover h3 {
+  color: #AD262B;
+}
+
+.direction-item:focus-visible {
+  outline: 2px solid #AD262B;
+  outline-offset: 6px;
+}
+
+/* типографія */
+section.directions .direction-item .direction-meta {
+  font-size: 14px;
+  line-height: 1.4;
+font-style: italic;
+  color: #1D100E;
+  opacity: 1;
+
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.direction-text {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* мобільний UX */
+@media (hover: none) {
+  .direction-item:hover {
+    transform: none;
+  }
+}
