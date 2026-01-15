@@ -99,7 +99,7 @@ body {
 .hero {
   position: relative;
   min-height: 85vh;
-  background-image: url("../img/fon-hero2.png"); /* ← твоє фото */
+  background-image: url("../img/fon-hero23.png"); /* ← твоє фото */
   background-size: cover;
   background-position: center left;
   background-repeat: no-repeat;
